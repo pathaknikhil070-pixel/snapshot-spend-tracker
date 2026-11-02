@@ -4,7 +4,7 @@ import { Wallet } from "lucide-react";
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <div className="flex items-center gap-2.5">
-      <div className="grid h-9 w-9 place-items-center rounded-xl bg-balance text-primary-foreground">
+      <div className="grid h-9 w-9 place-items-center rounded-xl bg-bal text-primary-foreground">
         <Wallet className="h-5 w-5" />
       </div>
       <span className={`font-display text-lg font-semibold ${light ? "text-sidebar-primary" : "text-foreground"}`}>

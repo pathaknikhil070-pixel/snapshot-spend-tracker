@@ -21,12 +21,13 @@ export function evaluate(expr: string): number | null {
   for (let i = 0; i < ops.length; ) {
     if (ops[i] === "*" || ops[i] === "/") {
       if (ops[i] === "/" && nums[i + 1] === 0) return null;
-      const r = ops[i] === "*" ? nums[i] * nums[i + 1] : nums[i] / nums[i + 1];
+      const a = nums[i]!, b = nums[i + 1]!;
+      const r = ops[i] === "*" ? a * b : a / b;
       nums.splice(i, 2, r);
       ops.splice(i, 1);
     } else i++;
   }
-  return ops.reduce((acc, op, i) => (op === "+" ? acc + nums[i + 1] : acc - nums[i + 1]), nums[0]);
+  return ops.reduce<number>((acc, op, i) => (op === "+" ? acc + nums[i + 1]! : acc - nums[i + 1]!), nums[0]!);
 }
 
 const KEYS = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"];

@@ -6,7 +6,7 @@ import { formatMoney, type Transaction } from "@/lib/finance";
 export const CHART_COLORS = Array.from({ length: 9 }, (_, i) => `var(--chart-${i + 1})`);
 
 const tones = {
-  balance: "bg-balance-soft text-balance",
+  balance: "bg-bal-soft text-bal",
   income: "bg-income-soft text-income",
   expense: "bg-expense-soft text-expense",
   neutral: "bg-muted text-foreground",

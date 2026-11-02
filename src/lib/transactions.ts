@@ -30,7 +30,7 @@ export type TxInput = Omit<Transaction, "id">;
 export function useSaveTransaction() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: async ({ id, ...input }: TxInput & { id?: string }) => {
+    mutationFn: async ({ id, ...input }: TxInput & { id?: string | undefined }) => {
       const { error } = id
         ? await supabase.from("transactions").update(input).eq("id", id)
         : await supabase.from("transactions").insert(input);
