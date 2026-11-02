@@ -50,7 +50,7 @@ function TransactionsPage() {
       if (f.type !== "all" && t.type !== f.type) return false;
       if (f.cat !== "all" && t.category !== f.cat) return false;
       const d = new Date(t.transaction_date);
-      if (f.month !== "all" && !isSameMonth(d, months[Number(f.month)])) return false;
+      if (f.month !== "all" && !isSameMonth(d, months[Number(f.month)]!)) return false;
       if (f.from && d < new Date(f.from + "T00:00:00")) return false;
       if (f.to && d > new Date(f.to + "T23:59:59")) return false;
       return true;

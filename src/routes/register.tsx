@@ -28,10 +28,10 @@ function Register() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (f.name.trim().length < 2) return toast.error("Enter your full name");
-    if (!/^\S+@\S+\.\S+$/.test(f.email)) return toast.error("Enter a valid email");
-    if (f.password.length < 8) return toast.error("Password must be at least 8 characters");
-    if (f.password !== f.confirm) return toast.error("Passwords do not match");
+    if (f.name.trim().length < 2) return void toast.error("Enter your full name");
+    if (!/^\S+@\S+\.\S+$/.test(f.email)) return void toast.error("Enter a valid email");
+    if (f.password.length < 8) return void toast.error("Password must be at least 8 characters");
+    if (f.password !== f.confirm) return void toast.error("Passwords do not match");
     setLoading(true);
     const { data, error } = await supabase.auth.signUp({
       email: f.email,
@@ -39,9 +39,9 @@ function Register() {
       options: { emailRedirectTo: window.location.origin, data: { full_name: f.name.trim() } },
     });
     setLoading(false);
-    if (error) return toast.error(error.message);
-    if (data.user && data.user.identities?.length === 0) return toast.error("An account with this email already exists");
-    if (data.session) return nav({ to: "/dashboard" });
+    if (error) return void toast.error(error.message);
+    if (data.user && data.user.identities?.length === 0) return void toast.error("An account with this email already exists");
+    if (data.session) return void nav({ to: "/dashboard" });
     setSent(true);
   }
 
@@ -80,7 +80,7 @@ function Register() {
       </form>
       <p className="text-center text-sm text-muted-foreground">
         Already have an account?{" "}
-        <Link to="/login" className="font-medium text-balance hover:underline">
+        <Link to="/login" className="font-medium text-bal hover:underline">
           Log in
         </Link>
       </p>

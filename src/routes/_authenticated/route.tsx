@@ -69,7 +69,7 @@ function Shell() {
             key={n.to}
             to={n.to}
             className="flex flex-col items-center gap-1 py-2.5 text-xs text-muted-foreground"
-            activeProps={{ className: "text-balance" }}
+            activeProps={{ className: "text-bal" }}
           >
             <n.icon className="h-5 w-5" />
             {n.label}

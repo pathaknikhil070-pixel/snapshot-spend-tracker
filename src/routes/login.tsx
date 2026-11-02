@@ -27,12 +27,12 @@ function Login() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!/^\S+@\S+\.\S+$/.test(email)) return toast.error("Enter a valid email");
-    if (!password) return toast.error("Enter your password");
+    if (!/^\S+@\S+\.\S+$/.test(email)) return void toast.error("Enter a valid email");
+    if (!password) return void toast.error("Enter your password");
     setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
-    if (error) return toast.error(error.message);
+    if (error) return void toast.error(error.message);
     nav({ to: "/dashboard" });
   }
 
@@ -53,7 +53,7 @@ function Login() {
       </form>
       <p className="text-center text-sm text-muted-foreground">
         New here?{" "}
-        <Link to="/register" className="font-medium text-balance hover:underline">
+        <Link to="/register" className="font-medium text-bal hover:underline">
           Create an account
         </Link>
       </p>

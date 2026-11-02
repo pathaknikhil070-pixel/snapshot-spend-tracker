@@ -55,8 +55,8 @@
   --color-income-soft: var(--income-soft);
   --color-expense: var(--expense);
   --color-expense-soft: var(--expense-soft);
-  --color-balance: var(--balance);
-  --color-balance-soft: var(--balance-soft);
+  --color-bal: var(--balance);
+  --color-bal-soft: var(--balance-soft);
   --font-display: var(--font-display);
   --font-sans: var(--font-body);
   --shadow-card: var(--shadow-card);

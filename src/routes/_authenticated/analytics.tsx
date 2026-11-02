@@ -31,7 +31,7 @@ function Analytics() {
   const money = (n: number) => formatMoney(n, profile?.currency ?? "INR");
   const months = useMemo(() => Array.from({ length: 12 }, (_, i) => startOfMonth(subMonths(new Date(), i))), []);
   const [idx, setIdx] = useState("0");
-  const month = months[Number(idx)];
+  const month = months[Number(idx)]!;
   const mtx = inMonth(txs, month);
   const mt = totals(mtx);
   const cats = categoryBreakdown(mtx);

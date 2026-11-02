@@ -41,7 +41,7 @@ function Dashboard() {
   const [open, setOpen] = useState(false);
   const months = useMemo(() => Array.from({ length: 12 }, (_, i) => startOfMonth(subMonths(new Date(), i))), []);
   const [monthIdx, setMonthIdx] = useState("0");
-  const month = months[Number(monthIdx)];
+  const month = months[Number(monthIdx)]!;
 
   const t = totals(txs);
   const monthExp = monthlyExpense(txs, month);

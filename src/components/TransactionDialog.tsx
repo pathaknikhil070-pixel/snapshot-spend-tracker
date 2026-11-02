@@ -44,10 +44,10 @@ export function TransactionDialog({
     e.preventDefault();
     // allow quick sums like "120+45.5"
     const value = /[+\-*/]/.test(amount.slice(1)) ? evaluate(amount) : Number(amount);
-    if (!value || !isFinite(value) || value <= 0) return toast.error("Amount must be greater than zero");
-    if (!purpose.trim()) return toast.error("Enter a purpose");
-    if (!categoriesFor(type).includes(category)) return toast.error("Choose a category");
-    if (!date) return toast.error("Choose a date");
+    if (!value || !isFinite(value) || value <= 0) return void toast.error("Amount must be greater than zero");
+    if (!purpose.trim()) return void toast.error("Enter a purpose");
+    if (!categoriesFor(type).includes(category)) return void toast.error("Choose a category");
+    if (!date) return void toast.error("Choose a date");
     try {
       await save.mutateAsync({
         id: editing?.id,
